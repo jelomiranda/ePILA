@@ -13,6 +13,39 @@ class Update extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            Row(
+              children: [
+                Container(
+                  color: Colors.white,
+                  height: 20,
+                  width: 20,
+                  child: Container(
+                    height: 20,
+                    width: 20,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(60),
+                        ),
+                        color: Color.fromARGB(255, 0, 35, 87)),
+                  ),
+                ),
+                Expanded(child: SizedBox()),
+                Container(
+                  color: Colors.white,
+                  height: 20,
+                  width: 20,
+                  child: Container(
+                    height: 20,
+                    width: 20,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.only(
+                          topRight: Radius.circular(60),
+                        ),
+                        color: Color.fromARGB(255, 0, 35, 87)),
+                  ),
+                ),
+              ],
+            ),
             const SizedBox(
               height: 100,
             ),
@@ -63,6 +96,7 @@ class Update extends StatelessWidget {
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 14,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
               ),
@@ -84,8 +118,9 @@ class Update extends StatelessWidget {
                 child: const Text(
                   'About ePILA',
                   style: TextStyle(
-                    color: Color.fromARGB(255, 16, 2, 143),
+                    color: Color.fromARGB(255, 0, 35, 87),
                     fontSize: 14,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
               ),
