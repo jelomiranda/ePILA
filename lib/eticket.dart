@@ -1,16 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class eTicket extends StatelessWidget {
-  const eTicket({super.key});
-
-/* Authored by: Amethyst Claudia M. Moran, Jelo Miranda, & Jamie Marie Jarme
-Company: Nexus
-Project: ePILA
-Feature: [ePILA-001] Queue Management
-Description: This feature will provide a sophisticated queuing 
-mechanism, allowing users to reserve their spot in the queue and 
-generate eTICKETs.
- */
+  const eTicket({Key? key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,75 +10,89 @@ generate eTICKETs.
       backgroundColor: Color.fromARGB(255, 0, 35, 87),
       body: SingleChildScrollView(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Row(
-              children: [
-                Container(
-                  color: Colors.white,
-                  height: 20,
-                  width: 20,
-                  child: Container(
-                    height: 20,
-                    width: 20,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(60),
-                        ),
-                        color: Color.fromARGB(255, 14, 29, 97)),
-                  ),
-                ),
-                Expanded(child: SizedBox()),
-                Container(
-                  color: Colors.white,
-                  height: 20,
-                  width: 20,
-                  child: Container(
-                    height: 20,
-                    width: 20,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.only(
-                          topRight: Radius.circular(60),
-                        ),
-                        color: Color.fromARGB(255, 14, 29, 97)),
-                  ),
-                ),
-              ],
+            _buildColoredRow(
+              leftColor: Color.fromARGB(255, 255, 255, 255),
+              rightColor: Colors.white,
             ),
-            const SizedBox(
-              height: 100,
-            ),
-            Text(
-              'This serves as your digital ticket.',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 20,
-                fontWeight: FontWeight.w300,
-              ),
+            const SizedBox(height: 100),
+            _buildText(
+              text: 'This serves as your digital ticket.',
+              fontSize: 20,
+              fontWeight: FontWeight.w300,
             ),
             Center(
-              child: Image.asset('assets/icon2.png'),
+              child: SvgPicture.asset('assets/ticket_icon.svg'),
             ),
-            Text(
-              "Please present this to the Treasurer's",
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 16,
-                fontWeight: FontWeight.w200,
-                fontStyle: FontStyle.italic,
-              ),
+            _buildText(
+              text: "Please present this to the Treasurer's",
+              fontSize: 16,
+              fontWeight: FontWeight.w200,
+              fontStyle: FontStyle.italic,
             ),
-            Text(
-              "Office's Staff before transaction.",
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 16,
-                fontWeight: FontWeight.w200,
-                fontStyle: FontStyle.italic,
-              ),
+            _buildText(
+              text: "Office's Staff before transaction.",
+              fontSize: 16,
+              fontWeight: FontWeight.w200,
+              fontStyle: FontStyle.italic,
             ),
           ],
         ),
+      ),
+    );
+  }
+
+  Widget _buildColoredRow({
+    required Color leftColor,
+    required Color rightColor,
+  }) {
+    return Row(
+      children: [
+        _buildColoredContainer(
+          color: leftColor,
+          borderRadius: BorderRadius.only(topLeft: Radius.circular(60)),
+        ),
+        Expanded(child: SizedBox()),
+        _buildColoredContainer(
+          color: rightColor,
+          borderRadius: BorderRadius.only(topRight: Radius.circular(60)),
+        ),
+      ],
+    );
+  }
+
+  Container _buildColoredContainer({
+    required Color color,
+    required BorderRadiusGeometry borderRadius,
+  }) {
+    return Container(
+      color: color,
+      height: 20,
+      width: 20,
+      child: Container(
+        height: 20,
+        width: 20,
+        decoration: BoxDecoration(
+          borderRadius: borderRadius,
+          color: Color.fromARGB(255, 0, 35, 87),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildText({
+    required String text,
+    double fontSize = 16,
+    FontWeight fontWeight = FontWeight.normal,
+    FontStyle? fontStyle,
+  }) {
+    return Text(
+      text,
+      style: TextStyle(
+        color: Colors.white,
+        fontSize: fontSize,
+        fontWeight: fontWeight,
+        fontStyle: fontStyle,
       ),
     );
   }

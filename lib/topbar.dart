@@ -13,12 +13,8 @@ class TopNavigationBar extends StatelessWidget {
             backgroundColor: Color.fromARGB(255, 255, 255, 255),
             title: Row(
               children: [
-                Image.asset("assets/ePILA.png", width: 200, height: 200),
+                Image.asset("assets/epila-logo.png", width: 100, height: 100),
                 Expanded(child: SizedBox()),
-                Image.asset("assets/close.png", width: 30, height: 30),
-                SizedBox(
-                  width: 15,
-                )
               ],
             ),
             bottom: TabBar(

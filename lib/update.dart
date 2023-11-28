@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'about.dart';
 import 'announcement.dart';
 
@@ -16,7 +17,7 @@ class Update extends StatelessWidget {
             Row(
               children: [
                 Container(
-                  color: Colors.white,
+                  color: Color.fromARGB(255, 255, 255, 255),
                   height: 20,
                   width: 20,
                   child: Container(
@@ -59,13 +60,13 @@ class Update extends StatelessWidget {
               ),
             ),
             const SizedBox(
-              height: 20,
+              height: 40,
             ),
             Center(
-              child: Image.asset('assets/icon3.png'),
+              child: SvgPicture.asset('assets/update_icon.svg'),
             ),
             const SizedBox(
-              height: 20,
+              height: 40,
             ),
             Text(
               "Get real-time queue updates!",

@@ -11,6 +11,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(
+        scaffoldBackgroundColor: Colors.white,
+      ),
       home: LandingPage(),
       debugShowCheckedModeBanner: false,
     );
@@ -28,43 +31,44 @@ class _LandingPageState extends State<LandingPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      body: SingleChildScrollView(
-        child: Column(
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.only(top: 300.00),
-              child: Center(
+      body: Center(
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Center(
                 child: Image.asset('assets/epila-logo.png'),
               ),
-            ),
-            const SizedBox(
-              height: 15,
-            ),
-            Container(
-              height: 42,
-              width: 145,
-              decoration: BoxDecoration(
+              const SizedBox(
+                height: 15,
+              ),
+              Container(
+                height: 42,
+                width: 145,
+                decoration: BoxDecoration(
                   color: Color.fromRGBO(1, 25, 70, 1),
-                  borderRadius: BorderRadius.circular(13)),
-              child: TextButton(
-                onPressed: () {
-                  //TODO HOME SCREEN GOES HERE
-                  Navigator.push(
+                  borderRadius: BorderRadius.circular(13),
+                ),
+                child: TextButton(
+                  onPressed: () {
+                    Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const Homepage()));
-                },
-                child: const Text(
-                  'QUEUE NOW',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 14,
+                        builder: (context) => const Homepage(),
+                      ),
+                    );
+                  },
+                  child: const Text(
+                    'QUEUE NOW',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 14,
+                    ),
                   ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
