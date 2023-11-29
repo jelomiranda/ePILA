@@ -6,7 +6,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,14 +14,37 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         scaffoldBackgroundColor: Colors.white,
       ),
-      home: LandingPage(),
+      home: SplashScreen(),
       debugShowCheckedModeBanner: false,
     );
   }
 }
 
+class SplashScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    const splashDuration = Duration(seconds: 2);
+
+    Future.delayed(splashDuration, () {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => const LandingPage()),
+      );
+    });
+
+    return Scaffold(
+      backgroundColor: Color.fromARGB(255, 0, 35, 87),
+      body: Center(
+        child: Image.asset(
+          'assets/splashlogo.png',
+        ),
+      ),
+    );
+  }
+}
+
 class LandingPage extends StatefulWidget {
-  const LandingPage({super.key});
+  const LandingPage({Key? key}) : super(key: key);
 
   @override
   _LandingPageState createState() => _LandingPageState();
@@ -36,8 +59,8 @@ class _LandingPageState extends State<LandingPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Center(
-                child: Image.asset('assets/epila-logo.png'),
+              Image.asset(
+                'assets/epila-large.png',
               ),
               const SizedBox(
                 height: 15,

@@ -15,6 +15,7 @@ class Update extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
                   color: Color.fromARGB(255, 255, 255, 255),
@@ -79,52 +80,66 @@ class Update extends StatelessWidget {
             const SizedBox(
               height: 40,
             ),
-            Container(
-              height: 42,
-              width: 145,
-              decoration: BoxDecoration(
-                  color: Color.fromRGBO(230, 72, 10, 1),
-                  borderRadius: BorderRadius.circular(13)),
-              child: TextButton(
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const Announcement()));
-                },
-                child: const Text(
-                  'ANNOUNCEMENTS',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 14,
-                    fontWeight: FontWeight.bold,
+            Row(
+              mainAxisAlignment:
+                  MainAxisAlignment.center, // Align buttons in the center
+              children: [
+                Container(
+                  height: 42,
+                  width: 145,
+                  margin: EdgeInsets.only(
+                      right: 10), // Adjust spacing between buttons
+                  decoration: BoxDecoration(
+                    color: Color.fromRGBO(230, 72, 10, 1),
+                    borderRadius: BorderRadius.circular(13),
+                  ),
+                  child: TextButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const Announcement(),
+                        ),
+                      );
+                    },
+                    child: const Text(
+                      'ANNOUNCEMENTS',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 14,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                   ),
                 ),
-              ),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            Container(
-              height: 42,
-              width: 145,
-              decoration: BoxDecoration(
-                  color: Color.fromRGBO(255, 255, 255, 1),
-                  borderRadius: BorderRadius.circular(13)),
-              child: TextButton(
-                onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => const About()));
-                },
-                child: const Text(
-                  'About ePILA',
-                  style: TextStyle(
-                    color: Color.fromARGB(255, 0, 35, 87),
-                    fontSize: 14,
-                    fontWeight: FontWeight.bold,
+                SizedBox(width: 20),
+                Container(
+                  height: 42,
+                  width: 145,
+                  decoration: BoxDecoration(
+                    color: Color.fromRGBO(255, 255, 255, 1),
+                    borderRadius: BorderRadius.circular(13),
+                  ),
+                  child: TextButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const About(),
+                        ),
+                      );
+                    },
+                    child: const Text(
+                      'About ePILA',
+                      style: TextStyle(
+                        color: Color.fromARGB(255, 0, 35, 87),
+                        fontSize: 14,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                   ),
                 ),
-              ),
+              ],
             ),
           ],
         ),
