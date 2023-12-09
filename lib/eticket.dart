@@ -23,15 +23,7 @@ class _ETicketState extends State<ETicket> {
               rightColor: Colors.white,
             ),
             const SizedBox(height: 100),
-            _buildText(
-              text: '$ticketNumber',
-              fontSize: 100,
-              fontWeight: FontWeight.w300,
-              color: Colors.black,
-            ),
-            Center(
-              child: SvgPicture.asset('assets/ticket_icon.svg'),
-            ),
+            _buildStackWithTicketNumber(),
             _buildText(
               text: "This serves as your digital ticket.",
               fontSize: 16,
@@ -58,6 +50,24 @@ class _ETicketState extends State<ETicket> {
           ],
         ),
       ),
+    );
+  }
+
+  Widget _buildStackWithTicketNumber() {
+    return Stack(
+      alignment: Alignment.center,
+      children: [
+        SvgPicture.asset('assets/ticket_icon.svg'),
+        Positioned(
+          top: 60, // Adjust the top position as needed
+          child: _buildText(
+            text: '$ticketNumber',
+            fontSize: 100, // Adjust the font size as needed
+            fontWeight: FontWeight.bold,
+            color: Colors.black,
+          ),
+        ),
+      ],
     );
   }
 
