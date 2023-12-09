@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class eTicket extends StatelessWidget {
-  const eTicket({Key? key});
+class ETicket extends StatefulWidget {
+  const ETicket({Key? key}) : super(key: key);
+
+  @override
+  _ETicketState createState() => _ETicketState();
+}
+
+class _ETicketState extends State<ETicket> {
+  int ticketNumber = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -17,12 +24,18 @@ class eTicket extends StatelessWidget {
             ),
             const SizedBox(height: 100),
             _buildText(
-              text: 'This serves as your digital ticket.',
-              fontSize: 20,
+              text: '$ticketNumber',
+              fontSize: 100,
               fontWeight: FontWeight.w300,
+              color: Colors.black,
             ),
             Center(
               child: SvgPicture.asset('assets/ticket_icon.svg'),
+            ),
+            _buildText(
+              text: "This serves as your digital ticket.",
+              fontSize: 16,
+              fontWeight: FontWeight.w200,
             ),
             _buildText(
               text: "Please present this to the Treasurer's",
@@ -36,10 +49,22 @@ class eTicket extends StatelessWidget {
               fontWeight: FontWeight.w200,
               fontStyle: FontStyle.italic,
             ),
+            ElevatedButton(
+              onPressed: () {
+                _generateETicket();
+              },
+              child: const Text('Generate eTicket'),
+            ),
           ],
         ),
       ),
     );
+  }
+
+  void _generateETicket() {
+    setState(() {
+      ticketNumber++; // Increment the ticket number
+    });
   }
 
   Widget _buildColoredRow({
@@ -85,11 +110,12 @@ class eTicket extends StatelessWidget {
     double fontSize = 16,
     FontWeight fontWeight = FontWeight.normal,
     FontStyle? fontStyle,
+    Color color = Colors.white, // Add missing parameter 'color'
   }) {
     return Text(
       text,
       style: TextStyle(
-        color: Colors.white,
+        color: color,
         fontSize: fontSize,
         fontWeight: fontWeight,
         fontStyle: fontStyle,
