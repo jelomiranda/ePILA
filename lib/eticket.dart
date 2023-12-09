@@ -120,7 +120,7 @@ class _ETicketState extends State<ETicket> {
     double fontSize = 16,
     FontWeight fontWeight = FontWeight.normal,
     FontStyle? fontStyle,
-    Color color = Colors.white, // Add missing parameter 'color'
+    Color color = Colors.white,
   }) {
     return Text(
       text,
