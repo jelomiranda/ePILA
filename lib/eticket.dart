@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class eTicket extends StatelessWidget {
-  const eTicket({Key? key});
+class ETicket extends StatefulWidget {
+  const ETicket({Key? key}) : super(key: key);
+
+  @override
+  _ETicketState createState() => _ETicketState();
+}
+
+class _ETicketState extends State<ETicket> {
+  int ticketNumber = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -16,13 +23,11 @@ class eTicket extends StatelessWidget {
               rightColor: Colors.white,
             ),
             const SizedBox(height: 100),
+            _buildStackWithTicketNumber(),
             _buildText(
-              text: 'This serves as your digital ticket.',
-              fontSize: 20,
-              fontWeight: FontWeight.w300,
-            ),
-            Center(
-              child: SvgPicture.asset('assets/ticket_icon.svg'),
+              text: "This serves as your digital ticket.",
+              fontSize: 16,
+              fontWeight: FontWeight.w200,
             ),
             _buildText(
               text: "Please present this to the Treasurer's",
@@ -36,10 +41,40 @@ class eTicket extends StatelessWidget {
               fontWeight: FontWeight.w200,
               fontStyle: FontStyle.italic,
             ),
+            ElevatedButton(
+              onPressed: () {
+                _generateETicket();
+              },
+              child: const Text('Generate eTicket'),
+            ),
           ],
         ),
       ),
     );
+  }
+
+  Widget _buildStackWithTicketNumber() {
+    return Stack(
+      alignment: Alignment.center,
+      children: [
+        SvgPicture.asset('assets/ticket_icon.svg'),
+        Positioned(
+          top: 60, // Adjust the top position as needed
+          child: _buildText(
+            text: '$ticketNumber',
+            fontSize: 100, // Adjust the font size as needed
+            fontWeight: FontWeight.bold,
+            color: Colors.black,
+          ),
+        ),
+      ],
+    );
+  }
+
+  void _generateETicket() {
+    setState(() {
+      ticketNumber++; // Increment the ticket number
+    });
   }
 
   Widget _buildColoredRow({
@@ -85,11 +120,12 @@ class eTicket extends StatelessWidget {
     double fontSize = 16,
     FontWeight fontWeight = FontWeight.normal,
     FontStyle? fontStyle,
+    Color color = Colors.white,
   }) {
     return Text(
       text,
       style: TextStyle(
-        color: Colors.white,
+        color: color,
         fontSize: fontSize,
         fontWeight: fontWeight,
         fontStyle: fontStyle,
