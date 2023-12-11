@@ -60,7 +60,7 @@ class _LandingPageState extends State<LandingPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Image.asset(
-                'assets/epila-large.png',
+                'assets/epila-normal.png',
               ),
               const SizedBox(
                 height: 15,
