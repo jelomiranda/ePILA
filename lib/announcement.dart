@@ -1,7 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter_svg/svg.dart';
 
 class Announcement extends StatelessWidget {
+  final List<String> announcements = const [
+    'Announcement 1',
+    'Announcement 2',
+    'Announcement 3',
+    // Add more announcements as needed
+  ];
+
   const Announcement({Key? key}) : super(key: key);
 
   @override
@@ -22,13 +30,41 @@ class Announcement extends StatelessWidget {
                 ),
               ),
               const SizedBox(
-                height: 20,
-              ),
-              Center(
-                child: SvgPicture.asset('assets/announcement-board.svg'),
-              ),
-              const SizedBox(
                 height: 15,
+              ),
+              CarouselSlider(
+                options: CarouselOptions(
+                  height: 200,
+                  enableInfiniteScroll: true,
+                  enlargeCenterPage: true,
+                  autoPlay: true,
+                ),
+                items: announcements.map((announcement) {
+                  return Builder(
+                    builder: (BuildContext context) {
+                      return Container(
+                        //margin: EdgeInsets.symmetric(horizontal: 10.0),
+                        child: Column(
+                          children: [
+                            const SizedBox(
+                              height: 20,
+                            ),
+                            Expanded(
+                              child: Center(
+                                child: SvgPicture.asset(
+                                  'assets/announcement-board.svg',
+                                ),
+                              ),
+                            ),
+                            const SizedBox(
+                              height: 15,
+                            ),
+                          ],
+                        ),
+                      );
+                    },
+                  );
+                }).toList(),
               ),
             ],
           ),
@@ -37,3 +73,4 @@ class Announcement extends StatelessWidget {
     );
   }
 }
+
