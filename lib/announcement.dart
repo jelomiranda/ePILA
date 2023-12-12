@@ -34,7 +34,7 @@ class Announcement extends StatelessWidget {
               ),
               CarouselSlider(
                 options: CarouselOptions(
-                  height: 200,
+                  height: 350,
                   enableInfiniteScroll: true,
                   enlargeCenterPage: true,
                   autoPlay: true,
@@ -73,4 +73,3 @@ class Announcement extends StatelessWidget {
     );
   }
 }
-
