@@ -38,7 +38,7 @@ class TopNavigationBar extends StatelessWidget {
           body: TabBarView(
             children: [
               Queue(),
-              eTicket(),
+              ETicket(),
               Update(),
             ],
           )),

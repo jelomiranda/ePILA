@@ -12,7 +12,7 @@ class Update extends StatefulWidget {
 }
 
 class _UpdateState extends State<Update> {
-  int updatedNumber = 100;
+  int updatedNumber = 10;
 
   @override
   void initState() {
@@ -38,13 +38,13 @@ class _UpdateState extends State<Update> {
 
   String getSvgStringWithUpdatedNumber() {
     return '''
-      <svg width="238" height="200" viewBox="0 0 238 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M71.4 200V177.778H23.8C17.2551 177.778 11.65 175.6 6.98532 171.244C2.32061 166.889 -0.00791294 161.659 2.0202e-05 155.556V22.2222C2.0202e-05 16.1111 2.33251 10.8778 6.99722 6.52224C11.6619 2.16668 17.2631 -0.00738854 23.8 1.88644e-05H214.2C220.745 1.88644e-05 226.35 2.1778 231.015 6.53335C235.679 10.8889 238.008 16.1185 238 22.2222V155.556C238 161.667 235.668 166.9 231.003 171.256C226.338 175.611 220.737 177.785 214.2 177.778H166.6V200H71.4ZM23.8 155.556H214.2V22.2222H23.8V155.556Z" fill="white"/>
-        <text x="119" y="100" dominant-baseline="middle" text-anchor="middle" fill="white" font-size="16">
-          $updatedNumber
-        </text>
-      </svg>
-    ''';
+    <svg width="238" height="200" viewBox="0 0 238 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M71.4 200V177.778H23.8C17.2551 177.778 11.65 175.6 6.98532 171.244C2.32061 166.889 -0.00791294 161.659 2.0202e-05 155.556V22.2222C2.0202e-05 16.1111 2.33251 10.8778 6.99722 6.52224C11.6619 2.16668 17.2631 -0.00738854 23.8 1.88644e-05H214.2C220.745 1.88644e-05 226.35 2.1778 231.015 6.53335C235.679 10.8889 238.008 16.1185 238 22.2222V155.556C238 161.667 235.668 166.9 231.003 171.256C226.338 175.611 220.737 177.785 214.2 177.778H166.6V200H71.4ZM23.8 155.556H214.2V22.2222H23.8V155.556Z" fill="white"/>
+      <text x="119" y="120" dominant-baseline="middle" text-anchor="middle" fill="white" font-size="80" font-weight="bold">
+        $updatedNumber
+      </text>
+    </svg>
+  ''';
   }
 
   @override

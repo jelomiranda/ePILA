@@ -22,13 +22,14 @@ class _ETicketState extends State<ETicket> {
               leftColor: Color.fromARGB(255, 255, 255, 255),
               rightColor: Colors.white,
             ),
-            const SizedBox(height: 100),
+            const SizedBox(height: 120),
             _buildStackWithTicketNumber(),
             _buildText(
               text: "This serves as your digital ticket.",
               fontSize: 16,
               fontWeight: FontWeight.w200,
             ),
+            const SizedBox(height: 30),
             _buildText(
               text: "Please present this to the Treasurer's",
               fontSize: 16,
@@ -40,6 +41,9 @@ class _ETicketState extends State<ETicket> {
               fontSize: 16,
               fontWeight: FontWeight.w200,
               fontStyle: FontStyle.italic,
+            ),
+            SizedBox(
+              height: 30,
             ),
             ElevatedButton(
               onPressed: () {
@@ -59,12 +63,12 @@ class _ETicketState extends State<ETicket> {
       children: [
         SvgPicture.asset('assets/ticket_icon.svg'),
         Positioned(
-          top: 60, // Adjust the top position as needed
+          top: 90,
           child: _buildText(
             text: '$ticketNumber',
-            fontSize: 100, // Adjust the font size as needed
+            fontSize: 100,
             fontWeight: FontWeight.bold,
-            color: Colors.black,
+            color: Color.fromARGB(255, 0, 35, 87),
           ),
         ),
       ],
@@ -73,7 +77,7 @@ class _ETicketState extends State<ETicket> {
 
   void _generateETicket() {
     setState(() {
-      ticketNumber++; // Increment the ticket number
+      ticketNumber = ticketNumber + 1; // Increment the ticket number
     });
   }
 
